@@ -17,20 +17,18 @@ public class FirstClass {
         Scanner scanner = new Scanner(System.in);
         String rowLine = scanner.nextLine();
         int[][] mas  = new int[256][2];
-
+        int row;
         for (int i = 0; i < rowLine.length(); i++)
         {
-               mas[Character.getNumericValue(rowLine.charAt(i))][1]++;    // =  mas[Character.getNumericValue(rowLine.charAt(i))][1] + 1;
+               row = Character.getNumericValue(rowLine.charAt(i));
+               mas[row][1]++;    // =  mas[Character.getNumericValue(rowLine.charAt(i))][1] + 1;
         }
 
-
         for (int i = 0; i<256; i++){
-
-            mas[i][2] = i;
-       //    if (mas[i][1]!= 0){
-         //      System.out.println( (char)mas[i][2]  + " " +  mas[i][1] );}
-
-       }
+            mas[i][0] = i;
+            if (mas[i][1]!= 0){
+            System.out.println(  (char)mas[i][0]  + " = " +  mas[i][1] );}
+        }
 
     }
 
