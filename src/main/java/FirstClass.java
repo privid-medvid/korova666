@@ -4,6 +4,7 @@
 
 
 import java.util.*;
+import java.util.ArrayList;
 
 
 public class FirstClass {
@@ -15,11 +16,22 @@ public class FirstClass {
         System.out.print("Insert raw with numbers"); //prints a string
         Scanner scanner = new Scanner(System.in);
         String lLine = scanner.nextLine();
-        System.out.print(lLine);
+        List<Character> charsInList = new ArrayList<Character>();
+        int sumOfNumsInString = 0;
+
+        for (int i = 0; i < lLine.length(); i++) {
+            if (Character.isDigit(lLine.charAt(i)))
+                 {     charsInList.add(lLine.charAt(i));  }
+        }
+
+        for (Character t : charsInList) {
+                sumOfNumsInString += Character.getNumericValue(t);
+        }
+
+        System.out.println( sumOfNumsInString );
+        }
 
 
-
-    }
 
 
 
@@ -28,10 +40,10 @@ public class FirstClass {
         Scanner scanner = new Scanner(System.in);
         int height = scanner.nextInt();
         int spaces = height-1;
-        int stars =1;
-        for (int rows=1; rows<=height; rows++ ){
+        int stars = 1;
+        for (int rows = 1; rows <= height; rows++ ){
 
-            for (int i=1; i<=spaces; i++ ){
+            for (int i = 1; i <= spaces; i++ ){
                 System.out.print(" ");
             }
             for (int i=1; i<=stars; i++ ){
@@ -60,7 +72,7 @@ public class FirstClass {
     }
 
     public static boolean  checkLeap(int year){
-        if (year < 1582){System.out.println("ââåäèòå ãîä áîëüøå 1581");}
+        if (year < 1582){System.out.println("insert year > 1581");}
         if  (year%4 != 0)  return false;
         else
         if (year%100 != 0) return true;
@@ -78,9 +90,9 @@ public class FirstClass {
 
     public static void main(String[] args) {
 
-        //leapLoop();
-        //pypamid();
-        sumOfString();
+        //leapLoop();       //Leap year - task1
+        //pypamid();        //Horizontal pyramid [Optional] - task3
+        sumOfString();    //Sum nums from a string -task4
 
 
 
