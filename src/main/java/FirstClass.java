@@ -3,12 +3,32 @@
  */
 
 
+import java.security.Key;
 import java.util.*;
 import java.util.ArrayList;
 
 
 public class FirstClass {
 
+
+    public static void distributionOnMap(){
+
+        Map<Character, Integer> letters = new HashMap<Character, Integer>();
+        System.out.print("Insert raw" + "\n"); //prints a string
+        Scanner scanner = new Scanner(System.in);
+        String rowLine = scanner.nextLine();
+        Integer count;
+        for (int i = 0; i < rowLine.length(); i++)
+        {
+            char key = rowLine.charAt(i);
+            if (letters.containsKey(key) ){
+                count = new Integer (letters.get(key) +1)   ;
+                letters.put(key, count);
+              }
+            else  letters.put(key, 1);
+        }
+        System.out.println(letters.toString());
+    }
 
 
     public static void distribution(){
@@ -114,7 +134,8 @@ public class FirstClass {
         //leapLoop();       //Leap year - task1
         //pypamid();        //Horizontal pyramid [Optional] - task3
         //sumOfString();    //Sum nums from a string[Optional] -task5
-        distribution();      //    Character distribution -    task6
+        //distribution();      //    Character distribution -    task6
+        distributionOnMap();      //    Character distribution -    task6
 
 
     }
