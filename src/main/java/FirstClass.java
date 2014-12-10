@@ -11,6 +11,29 @@ public class FirstClass {
 
 
 
+    public static void distribution(){
+
+        System.out.print("Insert raw"); //prints a string
+        Scanner scanner = new Scanner(System.in);
+        String rowLine = scanner.nextLine();
+        int[][] mas  = new int[256][2];
+
+        for (int i = 0; i < rowLine.length(); i++)
+        {
+               mas[Character.getNumericValue(rowLine.charAt(i))][1]++;    // =  mas[Character.getNumericValue(rowLine.charAt(i))][1] + 1;
+        }
+
+
+        for (int i = 0; i<256; i++){
+
+            mas[i][2] = i;
+       //    if (mas[i][1]!= 0){
+         //      System.out.println( (char)mas[i][2]  + " " +  mas[i][1] );}
+
+       }
+
+    }
+
 
     public static void sumOfString(){
         System.out.print("Insert raw with numbers"); //prints a string
@@ -92,8 +115,8 @@ public class FirstClass {
 
         //leapLoop();       //Leap year - task1
         //pypamid();        //Horizontal pyramid [Optional] - task3
-        sumOfString();    //Sum nums from a string -task4
-
+        //sumOfString();    //Sum nums from a string[Optional] -task5
+        distribution();      //    Character distribution -    task6
 
 
     }
