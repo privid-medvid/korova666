@@ -1,4 +1,4 @@
-/**
+package simple.tasks; /**
  * Created by a1 on! 12/9/2014.
  */
 
@@ -6,9 +6,61 @@
 import java.security.Key;
 import java.util.*;
 import java.util.ArrayList;
-
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class FirstClass {
+
+
+    public static void calculiatr(){
+
+
+        System.out.print("Insert raw" + "\n"); //prints a string
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+        float result = 0;
+
+
+        Pattern pat = Pattern.compile("(\\d+)([\\+\\-\\/\\*])(\\d+)");
+        Matcher mat = pat.matcher(input);
+        mat.find();
+
+        String a = mat.group(1);
+        String b = mat.group(3);
+        String action = mat.group(2);
+
+        switch (action)
+        {
+            case "+":
+                result = Float.valueOf(a) + Float.valueOf(b);
+                break;
+            case "-":
+                result = Float.valueOf(a) - Float.valueOf(b);
+                break;
+            case "*":
+                result = Float.valueOf(a) * Float.valueOf(b);
+                break;
+            case "/":
+                result = Float.valueOf(a) / Float.valueOf(b);
+                break;
+        }
+
+
+            /*
+        if (action.equals('+')) { result = Float.valueOf(a) + Float.valueOf(b);}
+        if (action.equals('*')) {result = Float.valueOf(a) * Float.valueOf(b);}
+        if (action.equals('/')) {result = Float.valueOf(a) / Float.valueOf(b);}
+        if (action.equals('-')) {result = Float.valueOf(a) - Float.valueOf(b);}
+
+
+              */
+
+
+
+        System.out.println(  Float.toString(result)) ;
+
+    }
+
 
 
     public static void distributionOnMap(){
@@ -96,47 +148,15 @@ public class FirstClass {
         }
 
 
-
-
     }
-
-
-
-    public static void leapLoop() throws Exception {
-        while (true) {
-            System.out.print("Insert year");
-            Scanner scanner = new Scanner(System.in);
-            int year = scanner.nextInt();
-            boolean leaping = checkLeap(year);
-            System.out.print(leaping + "\n");
-        }
-    }
-
-    public static boolean  checkLeap(int year){
-        if (year < 1582){System.out.println("insert year > 1581");}
-        if  (year%4 != 0)  return false;
-        else
-        if (year%100 != 0) return true;
-        else
-        if (year%400 != 0) return false;
-        return true;
-    }
-
-
-
-
-
-
-
 
     public static void main(String[] args) {
 
-        //leapLoop();       //Leap year - task1
         //pypamid();        //Horizontal pyramid [Optional] - task3
         //sumOfString();    //Sum nums from a string[Optional] -task5
         //distribution();      //    Character distribution -    task6
-        distributionOnMap();      //    Character distribution -    task6
-
+        //distributionOnMap();      //    Character distribution -    task6
+         calculiatr();
 
     }
 

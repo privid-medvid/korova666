@@ -1,5 +1,7 @@
 package pairs.problem;
 
+import tasks.PairedBracketsAlgorithm;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -7,11 +9,10 @@ import java.util.Scanner;
 /**
  * Created by dshegera on 12/16/2014.
  */
-public class PairsProblem {
+public class PairsProblem  implements PairedBracketsAlgorithm {
 
 
     static List<Character> charsInList = new ArrayList<Character>();
-
 
     static boolean charIsBracket(char a) {
 
@@ -21,7 +22,6 @@ public class PairsProblem {
             return false;
         }
     }
-
 
     static boolean isReadyForReduction(char c, char d) {
 
@@ -49,9 +49,15 @@ public class PairsProblem {
         return false;
     }
 
+    public boolean checkExpressionCorrect(String var1) {
 
-    static boolean myArrayCheck() {
-
+        for (int i = 0; i < var1.length(); i++) {
+            {
+                if (charIsBracket(var1.charAt(i))) {
+                    charsInList.add(var1.charAt(i));
+                }
+            }
+        }
 
         if (charsInList.size() % 2 != 0) return false;
         do {
@@ -77,23 +83,16 @@ public class PairsProblem {
     }
 
 
-    static void getLine() {
-        System.out.print("Insert line With Brackets");
-        Scanner scanner = new Scanner(System.in);
-        String lineWithBrackets = scanner.nextLine();
-        for (int i = 0; i < lineWithBrackets.length(); i++) {
-            {
-                if (charIsBracket(lineWithBrackets.charAt(i))) {
-                    charsInList.add(lineWithBrackets.charAt(i));
-                }
-            }
-        }
-    }
+
 
     public static void main(String[] args) {
 
-        getLine();
-        if (myArrayCheck()) {
+        System.out.print("Insert line With Brackets");
+        Scanner scanner = new Scanner(System.in);
+        String lineWithBrackets = scanner.nextLine();
+        PairedBracketsAlgorithm Pair = new PairsProblem();
+
+        if (Pair.checkExpressionCorrect(lineWithBrackets)) {
             System.out.print("Expression is correct!");
         } else {
             System.out.print("Expression is NOT correct!" + '\n');
