@@ -18,14 +18,14 @@ public class LeapYearTest {
 
     @Test
     public void testIsLeapYear() throws Exception {
-        Assert.assertFalse(YearTest.isLeapYear(2001));
+        Assert.assertTrue(YearTest.isLeapYear(1996));
         System.out.println("@Test - testIsLeapYear");
     }
 
-    @After
-    public void afterForTest(){
-        System.out.println("@After - just for test");
-
+    @Test
+    public void testIsNotLeapYear() throws Exception {
+        Assert.assertFalse(YearTest.isLeapYear(2001));
+        System.out.println("@Test - testIsNotLeapYear");
     }
 
 }

@@ -1,6 +1,7 @@
 package subsequence;
 
-import org.junit.BeforeClass;
+
+import tasks.SubSequenceAlgorithm;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,72 +11,55 @@ import java.util.Scanner;
  * Created by dshegera on 12/15/2014
  */
 
-public class Subsequence {
+public class Subsequence implements SubSequenceAlgorithm {
 
+    @Override
+    public boolean isSubSequence(List superList, List subList) {
 
-    private static List<Character> superList = new ArrayList<Character>();
-    private static List<Character> subList = new ArrayList<Character>();
-
-    static void getSeqs() {
-
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Insert superRaw with numbers");
-        String superSequence = scanner.nextLine();
-
-        System.out.print("Insert subRaw with numbers");
-        String subSequence = scanner.nextLine();
-
-        for (int i = 0; i < superSequence.length(); i++) {
-            if (Character.isDigit(superSequence.charAt(i))) {
-                superList.add(superSequence.charAt(i));
-            }
-        }
-
-        for (int i = 0; i < subSequence.length(); i++) {
-            if (Character.isDigit(subSequence.charAt(i))) {
-                subList.add(subSequence.charAt(i));
-            }
-        }
-    }
-
-
-    private static void algorythm() {
         int beginOfScanOfSup = 0;
         boolean ifWasSubSeq = false;
 
-        for (Character sub : subList) {
-
+        for (Object sub : subList) {
             for (int i = beginOfScanOfSup; i < superList.size(); i++) {
-                if (Character.getNumericValue(sub) == Character.getNumericValue(superList.get(i))) {
-                    beginOfScanOfSup = i++;
+
+                  if (sub == superList.get(i)) {     //  if (Character.getNumericValue((Character)sub) == Character.getNumericValue((Character)superList.get(i))) {
+                    beginOfScanOfSup = i;
                     ifWasSubSeq = true;
                     break;
                 }
                 ifWasSubSeq = false;
             }
 
-
             if (ifWasSubSeq == false) {
                 break;
             }
         }
+        return ifWasSubSeq;
+    }
 
-        if (ifWasSubSeq == true) {
+    public List<Integer> getSeqs() {
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Insert Raw with numbers");
+        String superSequence = scanner.nextLine();
+        List gotList = new ArrayList();
+
+        for (int i = 0; i < superSequence.length(); i++) {
+            if (Character.isDigit(superSequence.charAt(i))) {
+                gotList.add(superSequence.charAt(i));
+            }
+        }
+        return gotList;
+    }
+
+    public static void main(String[] args) {
+
+        Subsequence Checker = new Subsequence();
+
+        if (Checker.isSubSequence (Checker.getSeqs(), Checker.getSeqs()) ) {
             System.out.println("Yes, it is a subsequence");
         } else {
             System.out.println("BoolShit");
         }
     }
-
-
-    public static void main(String[] args) {
-
-        getSeqs();
-        algorythm();
-
-    }
 }
-
-
-

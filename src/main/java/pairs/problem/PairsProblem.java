@@ -7,14 +7,14 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * Created by dshegera on 12/16/2014.
+ * Created by dshegera on 12/16/2014
  */
 public class PairsProblem  implements PairedBracketsAlgorithm {
 
 
-    static List<Character> charsInList = new ArrayList<Character>();
+    List<Character> charsInList = new ArrayList<>();
 
-    static boolean charIsBracket(char a) {
+    boolean charIsBracket(char a) {
 
         if (a == '(' || a == ')' || a == '{' || a == '}' || a == '[' || a == ']') {
             return true;
@@ -23,7 +23,7 @@ public class PairsProblem  implements PairedBracketsAlgorithm {
         }
     }
 
-    static boolean isReadyForReduction(char c, char d) {
+    boolean isReadyForReduction(char c, char d) {
 
         if (c == '(' && d == ')') {
             return true;
@@ -40,8 +40,7 @@ public class PairsProblem  implements PairedBracketsAlgorithm {
         return false;
     }
 
-
-    static boolean isWrong(char a, char b) {
+    boolean isWrong(char a, char b) {
 
         if (a == '(' && (b == ']' || b == '}')) return true;
         if (a == '[' && (b == ')' || b == '}')) return true;
@@ -81,9 +80,6 @@ public class PairsProblem  implements PairedBracketsAlgorithm {
         }
         while (true);
     }
-
-
-
 
     public static void main(String[] args) {
 
