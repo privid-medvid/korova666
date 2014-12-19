@@ -3,9 +3,7 @@ package simple.tasks; /**
  */
 
 
-import java.security.Key;
 import java.util.*;
-import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -104,30 +102,6 @@ public class FirstClass {
 
     }
 
-
-    public static void sumOfString(){
-        System.out.print("Insert raw with numbers"); //prints a string
-        Scanner scanner = new Scanner(System.in);
-        String lLine = scanner.nextLine();
-        List<Character> charsInList = new ArrayList<Character>();
-        int sumOfNumsInString = 0;
-
-        for (int i = 0; i < lLine.length(); i++) {
-            if (Character.isDigit(lLine.charAt(i)))
-                 {     charsInList.add(lLine.charAt(i));  }
-        }
-
-        for (Character t : charsInList) {
-                sumOfNumsInString += Character.getNumericValue(t);
-        }
-
-        System.out.println( sumOfNumsInString );
-        }
-
-
-
-
-
     public static void pypamid(){
         System.out.print("Insert pypamid height (VALUE > 0)"); //prints a string
         Scanner scanner = new Scanner(System.in);
@@ -152,11 +126,10 @@ public class FirstClass {
 
     public static void main(String[] args) {
 
-        //pypamid();        //Horizontal pyramid [Optional] - task3
-        //sumOfString();    //Sum nums from a string[Optional] -task5
+        pypamid();        //Horizontal pyramid [Optional] - task3
         //distribution();      //    Character distribution -    task6
         //distributionOnMap();      //    Character distribution -    task6
-         calculiatr();
+        //calculiatr();
 
     }
 
