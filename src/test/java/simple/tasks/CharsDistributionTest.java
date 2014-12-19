@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by dshegera on 12/19/2014.
+ * Created by dshegera on 12/19/2014
  */
 public class CharsDistributionTest {
 
@@ -31,8 +31,7 @@ public class CharsDistributionTest {
         testManualMap.put('1', 1);
         testManualMap.put('3', 2);
 
-        Assert.assertTrue( testAutoMap.equals(testManualMap) );
-        System.out.println("+++");
+        Assert.assertEquals(testAutoMap, testManualMap);
     }
 
 
