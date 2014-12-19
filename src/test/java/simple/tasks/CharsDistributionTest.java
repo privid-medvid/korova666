@@ -32,8 +32,6 @@ public class CharsDistributionTest {
         testManualMap.put('3', 2);
 
         Assert.assertEquals(testAutoMap, testManualMap);
+
     }
-
-
-
 }
