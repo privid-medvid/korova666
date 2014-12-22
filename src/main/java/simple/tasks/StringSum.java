@@ -16,17 +16,12 @@ public class StringSum implements StringSumAlgorithm {
     @Override
     public double getSumFromString(String s) {
 
-            List<Character> charsInList = new ArrayList<>();
             double sumOfNumsInString = 0;
-
             for (int i = 0; i < s.length(); i++) {
                 if (Character.isDigit(s.charAt(i)))
-                {     charsInList.add(s.charAt(i));  }
+                {     sumOfNumsInString = sumOfNumsInString + Character.getNumericValue(s.charAt(i));  }
             }
 
-            for (Character t : charsInList) {
-                sumOfNumsInString += Character.getNumericValue(t);
-            }
             return sumOfNumsInString;
     }
 

@@ -3,18 +3,30 @@ package simple.tasks;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import pairs.problem.PairsProblem;
+import tasks.PairedBracketsAlgorithm;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 
 /**
  * Created by dshegera on 12/19/2014
  */
+
+@RunWith(Parameterized.class)
 public class StringSumTest {
 
-    StringSum Calcul;
+    @Parameterized.Parameter
+    public StringSum Calcul = new StringSum();
 
-    @Before
-    public  void setUp(){
-        Calcul = new StringSum();
+    @Parameterized.Parameters
+    public static Collection<Object[]> data() {
+        ArrayList<Object[]> params = new ArrayList<>();
+        params.add(new Object[]{new StringSum()});
+        return params;
     }
 
     @Test

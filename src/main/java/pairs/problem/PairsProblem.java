@@ -12,7 +12,6 @@ import java.util.Scanner;
 public class PairsProblem  implements PairedBracketsAlgorithm {
 
 
-    List<Character> charsInList = new ArrayList<>();
 
     boolean charIsBracket(char a) {
 
@@ -48,8 +47,18 @@ public class PairsProblem  implements PairedBracketsAlgorithm {
         return false;
     }
 
+    boolean closeOpenOrder(char a, char b) {
+
+            if (a == ')' || b == '(') return true;
+            if (a == ']' || b == '[') return true;
+            if (a == '}' || b == '{') return true;
+
+        return false;
+    }
+
     public boolean checkExpressionCorrect(String var1) {
 
+        List<Character> charsInList = new ArrayList<Character>();
         for (int i = 0; i < var1.length(); i++) {
             {
                 if (charIsBracket(var1.charAt(i))) {
@@ -71,6 +80,11 @@ public class PairsProblem  implements PairedBracketsAlgorithm {
                 if (isReadyForReduction(charsInList.get(i), charsInList.get(i + 1))) {
                     charsInList.remove(i + 1);
                     charsInList.remove(i);
+                }
+
+                if (charsInList.size() == 2){
+                    if (closeOpenOrder(charsInList.get(0), charsInList.get(1))){
+                        return false;}
                 }
             }
 
